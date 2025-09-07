@@ -34,4 +34,17 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+// @import "@ionic/angular/css/palettes/dark.system.css";
+
+/* Barra de tabs */
+ion-tab-bar {
+    --background: #fff;      /* fundo sempre branco */
+    --color: #000;           /* ícones/labels padrão pretos */
+    --color-selected: #e30613; /* vermelho da empresa */
+  }
+  
+  /* Ripple effect customizado */
+  ion-tab-button::part(native) {
+    --ripple-color: #e30613; /* ripple vermelho */
+  }
+  

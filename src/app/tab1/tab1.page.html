@@ -1,17 +1,44 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="light">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/tabs/tab0">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
     <ion-title>
-      Tab 1
+      Controle
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="controle-content light">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="controle-header">
+    <h1>Controle de Estoque</h1>
+    <p>Total de itens em estoque: {{ getTotalQuantidade() }}</p>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let item of produtos">
+      <ion-label>
+        <h2>{{ item.nome }}</h2>
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-button color="danger" (click)="diminuir(item)">
+          <ion-icon name="remove-circle-outline"></ion-icon>
+        </ion-button>
+
+        <span class="quantidade">{{ item.quantidade }}</span>
+
+        <ion-button color="warning" (click)="aumentar(item)">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+
+
 </ion-content>

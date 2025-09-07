@@ -1,17 +1,62 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/tabs/tab0">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
     <ion-title>
-      Tab 3
+      Atualização
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="controle-content">
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div class="controle-header">
+    <h1>Atualização de Estoque</h1>
+    <p>Atualize, exclua e adicione produtos ao seu estoque.</p>
+  </div>
+
+  <ion-item lines="none">
+    <ion-label>Produto</ion-label>
+    <br>
+    <ion-select 
+      [(ngModel)]="produtoSelecionado" 
+      placeholder="Clique para escolher"
+      interface="popover" 
+      (ionChange)="preencherCampos()"
+    >
+      <ion-select-option *ngFor="let p of produtos" [value]="p">{{ p.nome }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  
+  <!-- <ion-text *ngIf="produtoSelecionado" color="medium" class="produto-selecionado">
+    Produto selecionado: {{ produtoSelecionado.nome }}
+  </ion-text> -->
+
+  <ion-item>
+    <ion-label position="stacked">Nome</ion-label>
+    <ion-input [(ngModel)]="novoProduto.nome" placeholder="Nome do produto"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Estoque mínimo</ion-label>
+    <ion-input type="number" [(ngModel)]="novoProduto.minimo" placeholder="Quantidade mínima"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Quantidade</ion-label>
+    <ion-input type="number" [(ngModel)]="novoProduto.quantidade" placeholder="Quantidade atual"></ion-input>
+  </ion-item>
+
+  <div class="botao-container">
+    <ion-button fill="outline" size="small" color="amarelo" (click)="atualizarProduto()">Atualizar Produto</ion-button>
+    <ion-button fill="outline" size="small" color="vermelho" (click)="excluirProduto()">Excluir Produto</ion-button>
+    <ion-button fill="outline" size="small" color="preto" (click)="adicionarProduto()">Adicionar Novo Produto</ion-button>
+  </div>
+
+
+
 </ion-content>

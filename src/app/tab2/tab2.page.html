@@ -1,17 +1,53 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/tabs/tab0">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title> Relatório </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="controle-content">
+  <div class="controle-header">
+    <h1>Relatório de Estoque</h1>
+    <p>Confira e baixe o relatório em formato pdf.</p>
+  </div>
+  <div class="titulo">
+    <h2>Resumo da Contagem</h2>
+    <span>{{ dataAtual }}</span>
+  </div>
+  <ion-list>
+    <ion-item 
+      *ngFor="let item of produtos" 
+      [ngClass]="{
+        'alerta-vermelho': item.quantidade < item.minimo,
+        'alerta-amarelo': item.quantidade == item.minimo
+      }"
+    >
+      <ion-label>
+        <h3>{{ item.nome }}</h3>
+        <p>Quantidade: {{ item.quantidade }}</p>
+        <p>Estoque mínimo: {{ item.minimo }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card>
+    <ion-item>
+      <ion-label position="stacked">Observações</ion-label>
+      <ion-textarea
+        [(ngModel)]="observacao"
+        placeholder="Se necessário, digite aqui as observações."
+      ></ion-textarea>
+    </ion-item>
+  </ion-card>
+
+  <div class="botao-container">
+    <ion-button fill="outline" size="small" color="preto" (click)="gerarPdf()"
+      >Gerar PDF</ion-button
+    >
+  </div>
 </ion-content>

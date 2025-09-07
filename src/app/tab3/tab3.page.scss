@@ -1,0 +1,47 @@
+.controle-header {
+    padding: 16px;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+  
+    h1 {
+      font-size: 22px;
+      margin-bottom: 4px;
+      color: #2c3e50;
+    }
+  
+    p {
+      font-size: 14px;
+      color: #7f8c8d;
+    }
+  }
+
+.botao-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .botoes-container ion-button {
+    flex: 1;
+    margin: 0 5px; 
+  }
+
+  .produto-selecionado {
+    display: block;
+    margin: 5px 0 15px 15px; 
+    font-weight: 500;
+  }
+
+  ion-button[color="amarelo"] {
+    color: #FFD700;
+  }
+  
+  ion-button[color="preto"] {
+    color: #000;
+  }
+  
+  ion-button[color="vermelho"] {
+    color: #C00; 
+  }

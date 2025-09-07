@@ -1,0 +1,49 @@
+.controle-header {
+  padding: 16px;
+  text-align: center;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ddd;
+
+  h1 {
+    font-size: 22px;
+    margin-bottom: 4px;
+    color: #2c3e50;
+  }
+
+  p {
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+}
+
+.titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+span {
+  font-size: 0.8em;
+  color: gray;
+}
+
+.botao-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+ion-button[color="preto"] {
+  color: #000;
+}
+
+.alerta-amarelo {
+    --background: #fff3cd; /* amarelo suave */
+    --color: #1e1e1e;      /* texto mais escuro */
+  }
+  
+  .alerta-vermelho {
+    --background: #f8d7da; /* vermelho claro */
+    --color: #1e1e1e;      /* texto escuro vermelho */
+  }
